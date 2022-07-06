@@ -4,16 +4,6 @@ CREATE TYPE "gender" AS ENUM (
   'other'
 );
 
-CREATE TYPE "Pay_category" AS ENUM (
-  'Visa',
-  'MasterCard',
-  'PayPal',
-  'WesternUnion',
-  'Ebay',
-  'Uzcard',
-  'Humo'
-);
-
 CREATE TYPE "class" AS ENUM (
   'ecanom',
   'bussnues',
@@ -138,7 +128,7 @@ CREATE TABLE "Ticket" (
   "gate" varchar,
   "seat" varchar,
   "class" class,
-  "pay_category" Pay_category,
+  "pay_category_id" int,
   "airport_id" int,
   "airline_id" int,
   "flight_date" datetime
@@ -150,6 +140,11 @@ CREATE TABLE "Black_list" (
   "create_at" date,
   "delete_at" date,
   "lifetime" datetime
+);
+
+CREATE TABLE "Pay_Category" (
+  "id" SERIAL PRIMARY KEY,
+  "name" varchar
 );
 
 ALTER TABLE "employee" ADD FOREIGN KEY ("Employee_about_id") REFERENCES "Employee_about" ("id");
@@ -189,3 +184,5 @@ ALTER TABLE "Security_check" ADD FOREIGN KEY ("airport_id") REFERENCES "Airport"
 ALTER TABLE "Black_list" ADD FOREIGN KEY ("passanger_id") REFERENCES "Passanger" ("id");
 
 ALTER TABLE "Roule_table" ADD FOREIGN KEY ("airport_id") REFERENCES "Airport" ("id");
+
+ALTER TABLE "Pay_Category" ADD FOREIGN KEY ("id") REFERENCES "Ticket" ("pay_category_id");
