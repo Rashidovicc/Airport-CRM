@@ -44,9 +44,9 @@ CREATE TABLE "Roule_table" (
   "id" SERIAL PRIMARY KEY,
   "airline_id" int,
   "time" datetime,
-  "country" varchar,
   "flight_id" int,
-  "remarks" varchar
+  "remarks" varchar,
+  "airport_id" int
 );
 
 CREATE TABLE "Employee_connection" (
@@ -67,7 +67,9 @@ CREATE TABLE "Flight" (
   "create_at" datetime,
   "update_at" datetime,
   "airline_id" int,
-  "airport_id" int
+  "airport_id" int,
+  "from_country" varchar,
+  "to_country" varchar
 );
 
 CREATE TABLE "Address" (
@@ -110,7 +112,8 @@ CREATE TABLE "Security_check" (
   "comments" text,
   "create_at" datetime,
   "update_at" datetime,
-  "passanger_id" int
+  "passanger_id" int,
+  "airport_id" int
 );
 
 CREATE TABLE "Contact_passanger" (
@@ -139,6 +142,14 @@ CREATE TABLE "Ticket" (
   "airport_id" int,
   "airline_id" int,
   "flight_date" datetime
+);
+
+CREATE TABLE "Black_list" (
+  "id" SERIAL PRIMARY KEY,
+  "passanger_id" int,
+  "create_at" date,
+  "delete_at" date,
+  "lifetime" datetime
 );
 
 ALTER TABLE "employee" ADD FOREIGN KEY ("Employee_about_id") REFERENCES "Employee_about" ("id");
@@ -172,3 +183,9 @@ ALTER TABLE "Security_check" ADD FOREIGN KEY ("passanger_id") REFERENCES "Passan
 ALTER TABLE "airline" ADD FOREIGN KEY ("id") REFERENCES "Flight" ("airline_id");
 
 ALTER TABLE "Flight" ADD FOREIGN KEY ("airport_id") REFERENCES "Airport" ("id");
+
+ALTER TABLE "Security_check" ADD FOREIGN KEY ("airport_id") REFERENCES "Airport" ("id");
+
+ALTER TABLE "Black_list" ADD FOREIGN KEY ("passanger_id") REFERENCES "Passanger" ("id");
+
+ALTER TABLE "Roule_table" ADD FOREIGN KEY ("airport_id") REFERENCES "Airport" ("id");
