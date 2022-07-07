@@ -1,13 +1,13 @@
 CREATE TYPE "gender" AS ENUM (
   'Male',
   'Female',
-  'other'
+  'Other'
 );
 
 CREATE TYPE "class" AS ENUM (
-  'ecanom',
-  'bussnues',
-  'classic'
+  'Ecanom',
+  'Bussnues',
+  'Classic'
 );
 
 CREATE TABLE "employee" (
