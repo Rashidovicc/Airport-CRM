@@ -45,7 +45,7 @@ CREATE TABLE "Employee_connection" (
   "telephone" varchar(10)
 );
 
-CREATE TABLE "Profession" (
+CREATE TABLE "profession" (
   "id" SERIAL PRIMARY KEY,
   "name" varchar
 );
