@@ -30,7 +30,7 @@ CREATE TABLE "Employee_about" (
   "address_id" int
 );
 
-CREATE TABLE "Roule_table" (
+CREATE TABLE "roule_table" (
   "id" SERIAL PRIMARY KEY,
   "airline_id" int,
   "time" datetime,
