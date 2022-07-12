@@ -96,7 +96,7 @@ CREATE TABLE "Passanger" (
   "Contact_passanger_id" int
 );
 
-CREATE TABLE "Security_check" (
+CREATE TABLE "security_check" (
   "id" SERIAL PRIMARY KEY,
   "check_result" varchar,
   "comments" text,
