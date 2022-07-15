@@ -10,7 +10,7 @@ CREATE TYPE "class" AS ENUM (
   'Classic'
 );
 
-CREATE TABLE "employee" (
+CREATE TABLE "Employee" (
   "id" SERIAL PRIMARY KEY,
   "salary" decimal,
   "airport_id" int,
@@ -30,7 +30,7 @@ CREATE TABLE "Employee_about" (
   "address_id" int
 );
 
-CREATE TABLE "roule_table" (
+CREATE TABLE "Roule_table" (
   "id" SERIAL PRIMARY KEY,
   "airline_id" int,
   "time" datetime,
@@ -45,7 +45,7 @@ CREATE TABLE "Employee_connection" (
   "telephone" varchar(10)
 );
 
-CREATE TABLE "profession" (
+CREATE TABLE "Profession" (
   "id" SERIAL PRIMARY KEY,
   "name" varchar
 );
